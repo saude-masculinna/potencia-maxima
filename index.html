@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="prefetch" href="https://scripts.converteai.net/abde4983-7a08-47c0-9766-8244402fb995/players/6a620a9185160c812db0c6ed/v4/player.js" as="script">
 
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -133,19 +134,26 @@
 
   </div>
 
-  <script type="text/javascript">
+  <script>
     (function(){
-      var s=document.createElement("script");
-      s.src="https://scripts.converteai.net/abde4983-7a08-47c0-9766-8244402fb995/players/6a620a9185160c812db0c6ed/v4/player.js";
-      s.async=true;
-      document.head.appendChild(s);
+      var loadPlayer=function(){
+        var s=document.createElement("script");
+        s.src="https://scripts.converteai.net/abde4983-7a08-47c0-9766-8244402fb995/players/6a620a9185160c812db0c6ed/v4/player.js";
+        s.async=true;
+        document.head.appendChild(s);
+      };
+      if("requestIdleCallback" in window){
+        requestIdleCallback(loadPlayer,{timeout:3000});
+      }else{
+        setTimeout(loadPlayer,2500);
+      }
     })();
   </script>
 
   <script>
     (function(){
-      const end=Date.now()+43200000;
-      const format=function(ms){
+      var end=Date.now()+43200000;
+      var format=function(ms){
         if(ms<=0)return"00:00:00";
         var h=Math.floor(ms/3600000);
         var m=Math.floor(ms%3600000/60000);
