@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
-  <link rel="prefetch" href="https://scripts.converteai.net/abde4983-7a08-47c0-9766-8244402fb995/players/6a620a9185160c812db0c6ed/v4/player.js" as="script">
 
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -102,8 +101,6 @@
   </script>
 
   <div id="bar">
-
-  <div id="bar">
     <div class="dot"></div>
     Esta apresentação sai do ar em
     <strong id="timer">12:00:00</strong>
@@ -125,9 +122,7 @@
   </section>
 
   <section class="video-wrap">
-    <vturb-smartplayer id="vid-6a620a9185160c812db0c6ed" style="display:block;margin:0 auto;width:100%;max-width:400px;">
-      <div class="vturb-player-placeholder" style="position:relative;width:100%;padding:100% 0 0;z-index:0;background-color:black;"></div>
-    </vturb-smartplayer>
+    <vturb-smartplayer id="ab-6a92291e7905f178c2229f70" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
 
     <div class="live">
       <div class="d"></div>
@@ -189,20 +184,11 @@
 
   </div>
 
-  <script>
-    (function(){
-      var loadPlayer=function(){
-        var s=document.createElement("script");
-        s.src="https://scripts.converteai.net/abde4983-7a08-47c0-9766-8244402fb995/players/6a620a9185160c812db0c6ed/v4/player.js";
-        s.async=true;
-        document.head.appendChild(s);
-      };
-      if("requestIdleCallback" in window){
-        requestIdleCallback(loadPlayer,{timeout:3000});
-      }else{
-        setTimeout(loadPlayer,2500);
-      }
-    })();
+  <script type="text/javascript">
+    var s=document.createElement("script");
+    s.src="https://scripts.converteai.net/568bd5d4-05a4-45ff-91b9-c4a866617627/ab-test/6a92291e7905f178c2229f70/player.js";
+    s.async=!0;
+    document.head.appendChild(s);
   </script>
 
   <script>
