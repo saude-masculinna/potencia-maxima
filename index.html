@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apresentação Masculina</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#080808;
+      color:#eaeaea;
+      font-family:'Barlow',sans-serif;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* TOP BAR */
+
+    #bar{
+      width:100%;
+      border-bottom:1px solid #171717;
+      padding:10px 14px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      font-size:11px;
+      letter-spacing:.3px;
+      color:#555;
+      background:#090909;
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(6px);
+    }
+
+    #bar strong{
+      color:#d8a544;
+      font-weight:600;
+    }
+
+    .dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:#ff3434;
+      animation:pulse 1.4s infinite;
+      flex-shrink:0;
+    }
+
+    @keyframes pulse{
+      0%,100%{opacity:1;}
+      50%{opacity:.2;}
+    }
+
+    /* HERO */
+
+    .hero{
+      max-width:420px;
+      margin:0 auto;
+      padding:28px 22px 14px;
+      text-align:center;
+      animation:fade .7s ease;
+    }
+
+    .label{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      color:#c9922a;
+      opacity:.75;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(42px,11vw,60px);
+      line-height:1;
+      color:#fff;
+      letter-spacing:.5px;
+    }
+
+    h1 em{
+      display:block;
+      font-style:normal;
+      color:#f0c96b;
+    }
+
+    h1 small{
+      display:block;
+      margin-top:16px;
+      font-size:14px;
+      line-height:1.6;
+      font-style:italic;
+      color:#6a6a6a;
+      font-family:'Barlow',sans-serif;
+      font-weight:400;
+      text-transform:none;
+      letter-spacing:0;
+    }
+
+    h1 small strong{
+      color:#b1b1b1;
+      font-style:normal;
+      font-weight:600;
+    }
+
+    .divider{
+      width:1px;
+      height:34px;
+      margin:22px auto 10px;
+      background:linear-gradient(
+        to bottom,
+        transparent,
+        #c9922a,
+        transparent
+      );
+      opacity:.55;
+    }
+
+    /* VIDEO */
+
+    .video-wrap{
+      max-width:420px;
+      margin:0 auto;
+      padding:0 18px 8px;
+      animation:fade .7s ease;
+    }
+
+    vturb-smartplayer{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid #1b1b1b;
+      box-shadow:0 0 40px rgba(201,146,42,.08);
+    }
+
+    /* LIVE */
+
+    .live{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      margin-top:12px;
+      font-size:11px;
+      color:#cc3d3d;
+      font-weight:600;
+    }
+
+    .live .d{
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:#ff2e2e;
+      animation:pulse 1.2s infinite;
+    }
+
+    .live span{
+      color:#555;
+      font-weight:400;
+    }
+
+    .proof{
+      text-align:center;
+      font-size:12px;
+      color:#666;
+      margin-top:14px;
+      padding:0 20px;
+    }
+
+    .nudge{
+      text-align:center;
+      font-size:11px;
+      font-style:italic;
+      color:#3f3f3f;
+      padding:16px 20px 50px;
+      letter-spacing:.3px;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* ===== ESTILO FACEBOOK ===== */
+    .fb-comment {
+      margin-bottom: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .fb-profile-pic {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .fb-comment-body {
+      background-color: #f0f2f5;
+      padding: 8px 12px;
+      border-radius: 18px;
+      max-width: 520px;
+    }
+
+    .fb-comment-body strong {
+      font-size: 13px;
+      color: #050505;
+      display: block;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .fb-comment-body p {
+      margin: 3px 0 0 0;
+      font-size: 13px;
+      color: #1c1e21;
+      line-height: 1.35;
+    }
+
+    .fb-comment-footer {
+      font-size: 11px;
+      color: #65676b;
+      margin-top: 4px;
+      margin-left: 40px;
+    }
+
+    .fb-reply {
+      margin-left: 40px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 480px) {
+      .fb-profile-pic { width: 28px; height: 28px; }
+      .fb-comment-body { max-width: 240px; padding: 7px 10px; }
+      .fb-comment-body strong { font-size: 12.5px; }
+      .fb-comment-body p { font-size: 12px; }
+      .fb-comment-footer { font-size: 10px; margin-left: 36px; }
+      .fb-reply { margin-left: 36px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="bar">
+    <div class="dot"></div>
+    Esta apresentação sai do ar em
+    <strong id="timer">12:00:00</strong>
+  </div>
+
+  <section class="hero">
+
+    <div class="label">
+      Conteúdo reservado para homens
+    </div>
+
+    <h1>
+      O segredo que
+      <em>fez milhares de homens</em>
+      durarem mais de
+      <em>30 minutos na cama</em>
+
+      <small>
+        Homens comuns estão a recuperar a confiança.<br>
+        <strong>Assiste até ao fim — vale muito a pena.</strong>
+      </small>
+    </h1>
+
+    <div class="divider"></div>
+
+  </section>
+
+  <section class="video-wrap">
+
+    <vturb-smartplayer id="vid-6a620a9185160c812db0c6ed" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
+      <div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 100% 0 0; z-index: 0; background-color: black;"></div>
+    </vturb-smartplayer>
+
+    <div class="live">
+      <div class="d"></div>
+      <strong id="viewers">127</strong>
+      <span>homens a assistir agora</span>
+    </div>
+
+    <p class="proof">
+      +17.482 homens já assistiram esta apresentação
+    </p>
+
+  </section>
+
+  <p class="nudge">
+    Activa o som · Assiste até ao fim
+  </p>
+
+  <div style="max-width: 600px; margin: 0 auto;">
+
+    <!-- COMENTÁRIO 1 -->
+    <div class="fb-comment">
+      <img decoding="async" class="fb-profile-pic" src="images/leo.jpg" alt="Leo">
+      <div class="fb-comment-body">
+        <strong>Leo Macuacua</strong>
+        <p>Eu durava menos de 2 minutos. A minha mulher já dormia virada para o outro lado. Comecei a usar estas cápsulas e no 5º dia já era outro homem. Ela ficou em choque. Eu fiquei em choque. Isto é real. 🔥</p>
+        <div class="fb-comment-footer">há 2 dias · 👍 87 · ❤️ 43 · Responder</div>
+      </div>
+    </div>
+
+    <!-- RESPOSTA 1 -->
+    <div class="fb-comment fb-reply">
+      <img decoding="async" class="fb-profile-pic" src="images/domingos.jpg" alt="Domingos">
+      <div class="fb-comment-body">
+        <strong>Domingos dos Santos</strong>
+        <p>Irmão, a mesma coisa aqui. Já tinha perdido a esperança. Gastei dinheiro em chás, em comprimidos, tudo lixo. Estas cápsulas foram as únicas que fizeram efeito de verdade. A minha esposa até perguntou o que eu estava a tomar 😂</p>
+        <div class="fb-comment-footer">há 1 dia · 👍 54 · ❤️ 21 · Responder</div>
+      </div>
+    </div>
+
+    <!-- RESPOSTA 2 -->
+    <div class="fb-comment fb-reply">
+      <img decoding="async" class="fb-profile-pic" src="images/mateus.jpg" alt="Mateus">
+      <div class="fb-comment-body">
+        <strong>Mateus Rosário</strong>
+        <p>Posso confirmar. Eu estava a evitar a cama por vergonha. Depois de 7 dias com estas cápsulas voltei a ser o homem que era. Não estou a exagerar. Vale cada centavo.</p>
+        <div class="fb-comment-footer">há 22 horas · 👍 38 · ❤️ 17 · Responder</div>
+      </div>
+    </div>
+
+    <!-- COMENTÁRIO 2 -->
+    <div class="fb-comment">
+      <img decoding="async" class="fb-profile-pic" src="images/rabeca.jpg" alt="Rabeca">
+      <div class="fb-comment-body">
+        <strong>Rabeca Manuel</strong>
+        <p>Vou falar como mulher. O meu marido passou meses a falhar na cama. Eu já estava a perder o respeito por ele sem querer. Quando ele começou a usar estas cápsulas mudou tudo. Voltei a admirá-lo. Voltou a ser homem dentro de casa. Obrigada por isto existir. 🙏</p>
+        <div class="fb-comment-footer">há 3 dias · 👍 112 · ❤️ 67 · Responder</div>
+      </div>
+    </div>
+
+    <!-- COMENTÁRIO 3 -->
+    <div class="fb-comment">
+      <img decoding="async" class="fb-profile-pic" src="images/joao.jpg" alt="João">
+      <div class="fb-comment-body">
+        <strong>João Muchanga</strong>
+        <p>Tenho 58 anos e pensava que era a idade. Errado. Estas cápsulas provaram que eu ainda sou homem de verdade. A minha mulher ficou sem palavras. Basta seguir as instruções e confiar no processo. 💪</p>
+        <div class="fb-comment-footer">há 5 horas · 👍 73 · ❤️ 34 · Responder</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    var s=document.createElement("script");
+    s.src="https://scripts.converteai.net/abde4983-7a08-47c0-9766-8244402fb995/players/6a620a9185160c812db0c6ed/v4/player.js";
+    s.async=!0;
+    document.head.appendChild(s);
+  </script>
+
+  <script>
+
+    const end = Date.now() + 43200000;
+
+    const format = (ms) => {
+
+      if(ms <= 0) return "00:00:00";
+
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor(ms % 3600000 / 60000);
+      const sec = Math.floor(ms % 60000 / 1000);
+
+      return [h,m,sec]
+        .map(v => String(v).padStart(2,"0"))
+        .join(":");
+    };
+
+    setInterval(() => {
+      document.getElementById("timer").textContent =
+        format(end - Date.now());
+    },1000);
+
+    /* LIVE VIEWERS */
+
+    let viewers = 118 + Math.floor(Math.random()*18);
+
+    document.getElementById("viewers").textContent = viewers;
+
+    setInterval(() => {
+
+      viewers += Math.floor(Math.random()*5) - 2;
+
+      viewers = Math.max(84, Math.min(246, viewers));
+
+      document.getElementById("viewers").textContent = viewers;
+
+    },7000);
+
+  </script>
+
+</body>
+</html>
