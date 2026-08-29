@@ -48,6 +48,61 @@
 
 <body>
 
+  <script>
+    (function(){
+      var STORAGE_KEY='__utm_fb_data';
+      var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid','wbraid'];
+      var params=new URLSearchParams(window.location.search);
+      var stored=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+      var hasNew=false,current={};
+
+      UTM_KEYS.forEach(function(k){
+        var v=params.get(k);
+        if(v){current[k]=v;hasNew=true;}
+      });
+
+      if(hasNew){
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(current));
+      }else if(Object.keys(stored).length>0){
+        var restored=false;
+        UTM_KEYS.forEach(function(k){
+          if(stored[k]&&!params.has(k)){params.set(k,stored[k]);restored=true;}
+        });
+        if(restored){
+          var newUrl=window.location.pathname+'?'+params.toString()+window.location.hash;
+          window.history.replaceState({},'',newUrl);
+        }
+      }
+
+      window._getUTMString=function(){
+        var data=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+        var pairs=[];
+        UTM_KEYS.forEach(function(k){if(data[k])pairs.push(encodeURIComponent(k)+'='+encodeURIComponent(data[k]));});
+        return pairs.length?'?'+pairs.join('&'):'';
+      };
+
+      window._appendUTMs=function(url){
+        if(!url||url.indexOf('javascript:')===0||url.indexOf('#')===0)return url;
+        var a=document.createElement('a');a.href=url;
+        if(a.hostname===window.location.hostname)return url;
+        var utm=window._getUTMString();
+        if(!utm)return url;
+        var hash=a.hash||'';a.hash='';
+        var sep=a.search?'&':'?';
+        return a.href+sep+utm.substring(1)+hash;
+      };
+
+      document.addEventListener('click',function(e){
+        var el=e.target.closest('a');
+        if(!el||!el.href)return;
+        var newUrl=window._appendUTMs(el.href);
+        if(newUrl!==el.href)el.href=newUrl;
+      },true);
+    })();
+  </script>
+
+  <div id="bar">
+
   <div id="bar">
     <div class="dot"></div>
     Esta apresentação sai do ar em
